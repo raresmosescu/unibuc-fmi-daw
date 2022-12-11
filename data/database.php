@@ -1,8 +1,8 @@
 <?php
 $hostname = "localhost";
-$username = "my_user";
-$password = "my_password";
-$database = "my_database";
+$username = "root";
+$password = "";
+$database = "store";
 
 // Connect to the database
 $conn = mysqli_connect($hostname, $username, $password, $database);
@@ -11,5 +11,5 @@ $conn = mysqli_connect($hostname, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
+// echo "Connected successfully";
 ?>

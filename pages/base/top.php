@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +35,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="fas fa-bars"></i>
+      <i class="fa fa-bars"></i>
     </button>
 
     <!-- Collapsible wrapper -->
@@ -49,7 +55,7 @@
           <a class="nav-link" href="#">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Orders</a>
+          <a class="nav-link" href="#">My Orders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Admin</a>
@@ -62,9 +68,10 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3 text-success" href="/unibuc-fmi-daw/cart.php">
-        <i class="fa fa-shopping-cart" style="font-size:2rem;"></i>
+      <a class="text-dark" href="/unibuc-fmi-daw/cart.php">
+        <i class="fa fa-shopping-cart" style="font-size:2rem; font-style: $font-family-base"><span> Cart</span></i>
       </a>
+
 
       <!-- Right elements -->
     </div>

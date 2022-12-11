@@ -1,4 +1,14 @@
-<?php include("models/product.php"); ?>
+<?php 
+
+include("models/product.php"); 
+include("data/database.php");
+
+$query = "SELECT * FROM product";
+$products = mysqli_query($conn, $query);
+
+
+
+?>
 
 	<main>
 		<h1 class="text-center">Book Store Unibuc FMI DAW</h1>  
@@ -10,8 +20,8 @@
 						<?php 
 						$i = 0;
 
-						foreach ($products as $product) {
-								if ($i % 3 == 0) {
+						while ($product = mysqli_fetch_array($products)) {
+							if ($i % 3 == 0) {
 									echo "<div class='row'>";
 								}
 								echo "<div class='col-md-12 col-lg-4 mb-4 mb-lg-0'>";
@@ -23,10 +33,13 @@
 								echo "	<h5 class='text-dark mb-0'>$" . $product['price'] . "</h5>";
 								echo "</div>";
 								echo "<div class='d-flex flex-row'>";
-								echo "	<button type='button' onclick='addToCart()' class='btn btn-primary flex-fill me-1' data-mdb-ripple-color='dark'>";
-								echo "		Add to card";
-								echo "	</button>";
-								echo "	<button type='button' onclick='buyNow()' class='btn btn-danger flex-fill ms-1 ml-2'>Buy now</button>";
+								echo "<form action='/unibuc-fmi-daw/controllers/add_to_cart.php' method='POST'>";
+								echo "<input type='hidden' name='id' value=" . $product['id'] . ">";
+								echo "<input type='hidden' name='name' value='" . $product['name'] . "'>";
+								echo "<input type='hidden' name='quantity' value='1'>";
+								echo "<input type='hidden' name='price' value=" . $product['price'] . ">";
+								echo "<input class='btn btn-warning flex-fill me-1' data-mdb-ripple-color='dark' type='submit' value='Add to Cart'>";
+								echo "</form>";
 								echo "</div>";
 								echo "</div>";
 								echo "</div>";
@@ -41,8 +54,6 @@
 						}
 
 						echo "</div>";
-
-
 					
 						?>
 					</div>

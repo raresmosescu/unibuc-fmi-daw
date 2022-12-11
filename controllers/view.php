@@ -1,6 +1,5 @@
 <?php
 ### GLOBAL SESSION
-session_start();
 
 // ### CONFIGURATION FILES
 // include("config/site.php");

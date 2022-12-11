@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 $products = array(
   array(
