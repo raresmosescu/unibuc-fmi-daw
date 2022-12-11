@@ -41,7 +41,7 @@ session_start();
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <a class="navbar-brand mt-2 mt-lg-0" href="home.php">
         <img
           src="https://img.icons8.com/emoji/96/null/convenience-store.png"
           height="50"

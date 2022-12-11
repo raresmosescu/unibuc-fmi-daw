@@ -1,12 +1,10 @@
 <?php 
 
-include("models/product.php"); 
 include("data/database.php");
-
 $query = "SELECT * FROM product";
 $products = mysqli_query($conn, $query);
 
-
+// include("../../models/product.php");
 
 ?>
 

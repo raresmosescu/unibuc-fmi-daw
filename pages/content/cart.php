@@ -37,11 +37,25 @@
         ?>
       </tbody>
     </table>
-    <h3>Total: $<?php echo $total; ?></h3>
-    <div class='d-flex'>
-      <a href="checkout.php" class="btn btn-primary mr-2">Checkout</a>
-      <form action='/unibuc-fmi-daw/controllers/empty_cart.php' method='POST'>
-        <input class='btn btn-danger flex-fill me-1' data-mdb-ripple-color='dark' type='submit' value='Empty Cart'>
-      </form
+      <?php
+        if ($total > 0) {
+          ?>
+          <h3>Total: $<?php echo $total; ?></h3>
+          <div class='d-flex'>
+            <form action='/unibuc-fmi-daw/checkout.php' method='GET'>
+              <input type='hidden' name='total' value="<?php echo $total; ?>" required/>
+              <input type="submit" class="btn btn-primary mr-2" value="Checkout">
+            </form>
+            <form action='/unibuc-fmi-daw/controllers/empty_cart.php' method='POST'>
+              <input class='btn btn-danger flex-fill me-1' data-mdb-ripple-color='dark' type='submit' value='Empty Cart'>
+            </form>
+          <?php
+        } else {
+          ?>
+          <h3>Your cart is empty.</h3>
+          <?php
+        }
+      ?>
+
       </div>
   </div>

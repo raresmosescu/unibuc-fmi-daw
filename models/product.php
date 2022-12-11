@@ -1,65 +1,25 @@
 <?php
 
+include("data/database.php");
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 
-$products = array(
-  array(
-    "name" => "How Innovation Works",
-    "price" => 19.99,
-    "quantity" => 5,
-    "img" => "https://images.unsplash.com/photo-1589829085413-56de8ae18c73"
-  ),
-  array(
-    "name" => "The Psychology of Money",
-    "price" => 29.99,
-    "quantity" => 3,
-    "img" => "https://images.unsplash.com/photo-1592496431122-2349e0fbc666"
-  ),
-  array(
-    "name" => "A Storytelling Workbook",
-    "price" => 23.97,
-    "quantity" => 2,
-    "img" => "https://images.unsplash.com/photo-1612969308146-066d55f37ccb"
-  ),
+function fetch_products() {
+  global $hostname, $username, $password, $database;
+  $db = mysqli_connect($hostname, $username, $password, $database);
 
+  // Query the database to get all products
+  $query = "SELECT * FROM product;";
+  $result = mysqli_query($db, $query);
 
-  array(
-    "name" => "How Innovation Works",
-    "price" => 19.99,
-    "quantity" => 5,
-    "img" => "https://images.unsplash.com/photo-1589829085413-56de8ae18c73"
-  ),
-  array(
-    "name" => "The Psychology of Money",
-    "price" => 29.99,
-    "quantity" => 3,
-    "img" => "https://images.unsplash.com/photo-1592496431122-2349e0fbc666"
-  ),
-  array(
-    "name" => "A Storytelling Workbook",
-    "price" => 23.97,
-    "quantity" => 2,
-    "img" => "https://images.unsplash.com/photo-1612969308146-066d55f37ccb"
-  ),
+  // Loop through the query results and store each product in an array
+  $products = array();
+  // while ($row = mysqli_fetch_assoc($result)) {
+  //   $products[] = $row;
+  // }
 
-
-  array(
-    "name" => "How Innovation Works",
-    "price" => 19.99,
-    "quantity" => 5,
-    "img" => "https://images.unsplash.com/photo-1589829085413-56de8ae18c73"
-  ),
-  array(
-    "name" => "The Psychology of Money",
-    "price" => 29.99,
-    "quantity" => 3,
-    "img" => "https://images.unsplash.com/photo-1592496431122-2349e0fbc666"
-  ),
-  array(
-    "name" => "A Storytelling Workbook",
-    "price" => 23.97,
-    "quantity" => 2,
-    "img" => "https://images.unsplash.com/photo-1612969308146-066d55f37ccb"
-  ),
-);
+  return $products;
+}
 
 ?>
