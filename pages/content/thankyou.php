@@ -1,6 +1,6 @@
 <?php
 
-  require('controllers/invoice.php');
+  require('utility/invoice.php');
 
   if(isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];

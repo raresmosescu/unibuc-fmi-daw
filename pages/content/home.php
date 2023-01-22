@@ -26,7 +26,7 @@
 								echo "	<h5 class='text-dark mb-0'>$" . $product['price'] . "</h5>";
 								echo "</div>";
 								echo "<div class='d-flex flex-row'>";
-								echo "<form action='add_to_cart.php' method='POST'>";
+								echo "<form action='utility/add_to_cart.php' method='POST'>";
 								echo "<input type='hidden' name='id' value=" . $product['id'] . ">";
 								echo "<input type='hidden' name='product_name' value='" . $product['name'] . "'>";
 								echo "<input type='hidden' name='quantity' value='1'>";

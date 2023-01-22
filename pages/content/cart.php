@@ -42,7 +42,7 @@
           ?>
           <h3>Total: $<?php echo $total; ?></h3>
           <div class='d-flex'>
-            <form action='/unibuc-fmi-daw/checkout.php' method='GET'>
+            <form action='/checkout.php' method='GET'>
               <input type='hidden' name='total' value="<?php echo $total; ?>" required/>
               <input type="submit" class="btn btn-primary mr-2" value="Checkout">
             </form>

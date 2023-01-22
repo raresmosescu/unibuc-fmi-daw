@@ -74,7 +74,7 @@ session_start();
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-dark" href="/unibuc-fmi-daw/cart.php">
+      <a class="text-dark" href="/cart.php">
         <i class="fa fa-shopping-cart" style="font-size:2rem; font-style: $font-family-base"><span> Cart</span></i>
       </a>
 

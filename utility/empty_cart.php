@@ -7,6 +7,6 @@ if (isset($_SESSION['cart'])) {
 }
 
 // Redirect to the cart page
-header('Location: /unibuc-fmi-daw/cart.php');
+header('Location: /cart.php');
 
 exit;
