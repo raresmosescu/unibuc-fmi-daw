@@ -5,15 +5,20 @@
     $email = $_POST["email"];
     $address = $_POST["address"];
     $credit_card = $_POST["credit-card"];
-    $order_total = $_SESSION['cart_total'];
+    $order_total = $_SESSION["cart_total"];
+    $status = "pending";
+    $cart = $_SESSION["cart"];
 
-    // Print out the form data and order total
-    echo "Name: $name<br>";
-    echo "Email: $email<br>";
-    echo "Address: $address<br>";
-    echo "Credit Card: $credit_card<br>";
-    echo "Order Total: $" . $order_total;
+    $order_id = createOrder($email, $order_total, $address, $status);
+    createOrderItemsFromCart($order_id);
+
+    unset($_SESSION['cart']);
+
+    // Redirect to thankyou.php
+    header("Location: thankyou.php?order_id=".$order_id);
+    exit;
   }
+
 ?>
 <div class="container mt-4">
   <div class="row">

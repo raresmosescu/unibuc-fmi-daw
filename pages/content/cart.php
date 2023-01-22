@@ -27,7 +27,7 @@
           $item_total = $item['quantity'] * $item['price'];
           $total += $item_total;
           echo "<tr>";
-          echo "<td>" . $item['name'] . "</td>";
+          echo "<td>" . $item['product_name'] . "</td>";
           echo "<td>" . $item['quantity'] . "</td>";
           echo "<td>$" . $item['price'] . "</td>";
           echo "<td>$" . $item_total . "</td>";
@@ -46,7 +46,7 @@
               <input type='hidden' name='total' value="<?php echo $total; ?>" required/>
               <input type="submit" class="btn btn-primary mr-2" value="Checkout">
             </form>
-            <form action='/unibuc-fmi-daw/controllers/empty_cart.php' method='POST'>
+            <form action='empty_cart.php' method='POST'>
               <input class='btn btn-danger flex-fill me-1' data-mdb-ripple-color='dark' type='submit' value='Empty Cart'>
             </form>
           <?php

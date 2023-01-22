@@ -1,69 +1,63 @@
-create table product
+create table `order`
 (
-    id    int auto_increment,
-    name  text    not null,
-    price decimal not null,
-    quantity int not null,
-    img   text    not null,
-    constraint product_pk
-        primary key (id)
-);
-
-create unique index product_id_uindex
-    on product (id);
-
-
-create table user
-(
-    id              int auto_increment
+    id         int auto_increment
         primary key,
-    name            text                 not null,
-    email           text                 not null,
-    hashed_password text                 not null,
-    is_admin        tinyint(1) default 0 not null,
-    email_validated tinyint(1) default 0 not null,
-    constraint user_id
+    name       text                                  not null,
+    email      text                                  not null,
+    address    text                                  not null,
+    total      decimal                               not null,
+    status     text      default 'pending'           not null,
+    created_at timestamp default current_timestamp() not null,
+    constraint order_id_uindex
         unique (id)
 );
 
-create unique index user_id_uindex
-    on user (id);
-
+create table product
+(
+    id       int auto_increment
+        primary key,
+    name     text    not null,
+    price    decimal not null,
+    img      text    not null,
+    quantity int     not null,
+    constraint product_id_uindex
+        unique (id)
+);
 
 create table order_item
 (
-    id    int auto_increment,
-    order_id int not null,
-    name  text    not null,
-    price decimal not null,
-    quantity int not null,
-    img   text    not null,
-    constraint order_item_pk
-        primary key (id),
+    id           int auto_increment
+        primary key,
+    product_name text    not null,
+    price        decimal not null,
+    quantity     int     not null,
+    img          text    not null,
+    order_id     int     not null,
+    product_id   int     not null,
+    constraint order_item_uindex
+        unique (id),
     constraint order_item_order_id_fk
-        foreign key (order_id) references `order` (id)
+        foreign key (order_id) references `order` (id),
+    constraint order_item_product_id_fk
+        foreign key (product_id) references product (id)
 );
 
-create unique index order_item_uindex
-    on order_item (id);
-
-
-create table `order`
+create table `user`
 (
-    id      int auto_increment,
-    name    text    not null,
-    email   text    not null,
-    address text    not null,
-    total   decimal not null,
-    constraint order_pk
-        primary key (id)
+    id              int auto_increment
+        primary key,
+    name            text                      not null,
+    email           varchar(30)               not null,
+    password        text                      not null,
+    user_type       text       default 'user' not null,
+    email_validated tinyint(1) default 0      not null,
+    constraint user_email_uindex
+        unique (email),
+    constraint user_id_uindex
+        unique (id)
 );
 
-create unique index order_email_uindex
-    on `order` (email);
 
-create unique index order_id_uindex
-    on `order` (id);
 
 
 INSERT INTO product (name, price, quantity, img)

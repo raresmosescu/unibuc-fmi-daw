@@ -1,7 +1,7 @@
 <?php
 
 include("data/database.php");
-if (!$conn) {
+if (!$db) {
   die("Connection failed: " . mysqli_connect_error());
 }
 

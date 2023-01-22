@@ -32,7 +32,7 @@ if ($productIndex != -1) {
 else {
   $product = array(
     'id' => $_POST['id'],
-    'name' => $_POST['name'],
+    'product_name' => $_POST['product_name'],
     'quantity' => $_POST['quantity'],
     'price' => $_POST['price'],
   );

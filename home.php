@@ -1,7 +1,8 @@
 <?php
 
 
-include("controllers/view.php");
+require("controllers/view.php");
+require("data/product_crud.php");
 
 $view = new View;
 

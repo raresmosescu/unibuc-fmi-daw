@@ -51,14 +51,20 @@ session_start();
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Products</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="orders.php">Orders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My Orders</a>
+          <a class="nav-link" href="register.php">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Admin</a>
+          <a class="nav-link" href="login.php">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
       <!-- Left links -->
