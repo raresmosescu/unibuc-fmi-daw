@@ -2,6 +2,7 @@
 
 
 require("controllers/view.php");
+require("utility/email.php");
 
 $view = new View;
 
