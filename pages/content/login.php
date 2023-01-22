@@ -20,7 +20,7 @@
       // Start user session
       $_SESSION['user_email'] = $email;
       // Redirect to protected page
-      header('Location: home.php');
+      header('Location: index.php');
       exit();
     } else {
       $error = 'Invalid email or password';

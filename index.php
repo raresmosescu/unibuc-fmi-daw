@@ -10,5 +10,5 @@ $view = new View;
 // echo $_SERVER['DOCUMENT_ROOT'];
 
 $view->loadContent("base", "top");
-$view->loadContent("content", "home");
+$view->loadContent("content", "index");
 $view->loadContent("base", "bottom");
